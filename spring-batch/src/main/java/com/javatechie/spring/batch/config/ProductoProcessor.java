@@ -9,7 +9,7 @@ public class ProductoProcessor implements ItemProcessor<Producto,Producto> {
 
     @Override
     public Producto process(Producto producto) throws Exception {
-        if(producto.getPais().equals("Japon")) {
+        if(producto.getPais().equals("Reino Unido")) {
             return producto;
         }
         return null;

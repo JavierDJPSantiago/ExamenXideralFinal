@@ -11,8 +11,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "producto_info")
+//Notación de Lombok usada para Getter, Setter y ToString
 @Data
+//Notación de Lombok para constructor con todos los argumentos
 @AllArgsConstructor
+//Notación de Lombok para constructor sin argumentos
 @NoArgsConstructor
 public class Producto {
 
