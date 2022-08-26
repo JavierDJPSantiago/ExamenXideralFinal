@@ -1,0 +1,5 @@
+Hola, soy una línea de texto para añadirme a la historia de este repo
+
+Hagamos un stash
+
+hagamos stash y borremos la copia del stash

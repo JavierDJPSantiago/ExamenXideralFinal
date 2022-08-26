@@ -1,0 +1,62 @@
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (master)
+$ touch primero.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (master)
+$ git add .
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (master)
+$ git commit -m "primero"
+[master (root-commit) c0c8334] primero
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 primero.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (master)
+$ touch segundo.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (master)
+$ git add .
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (master)
+$ git commit -m "segundo"
+[master 28cb614] segundo
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 segundo.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (master)
+$ git checkout -b feature
+Switched to a new branch 'feature'
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (feature)
+$ touch primerofeature.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (feature)
+$ git add .
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (feature)
+$ git commit -m "commit para master"
+[feature 30f4475] commit para master
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 primerofeature.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (feature)
+$ git log --oneline
+30f4475 (HEAD -> feature) commit para master
+28cb614 (master) segundo
+c0c8334 primero
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (feature)
+$ git checkout master
+Switched to branch 'master'
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (master)
+$ git cherry-pick 30f4475
+[master 2c8b9ea] commit para master
+ Date: Fri Aug 26 01:20:17 2022 -0500
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 primerofeature.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git Cherry-pick (master)
+$ git log --oneline
+2c8b9ea (HEAD -> master) commit para master
+28cb614 segundo
+c0c8334 primero

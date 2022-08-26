@@ -1,0 +1,135 @@
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase
+$ git init
+Initialized empty Git repository in C:/Users/USER/Documents/Procesos Git/Rebase/.git/
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ touch primero.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git add .
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git commit -m "Primer Commit"
+[master (root-commit) 9b4011a] Primer Commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 primero.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ touch Segundo.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git add .
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git commit -m "Segundo commit"
+[master 4ae8e74] Segundo commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 Segundo.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git checkout -b feature
+Switched to a new branch 'feature'
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ git checkout master
+Switched to branch 'master'
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ touch tercero.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git add .
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git commit -m "Tercer commit"
+[master 380cdb7] Tercer commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 tercero.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git checkout feature
+Switched to branch 'feature'
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ touch PrimeroFeature.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ git add .
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ git commit -m "Primer commit feature"
+[feature 8bae8f3] Primer commit feature
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 PrimeroFeature.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ touch SegundoFeature.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ git add .
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ git commit -m "Segundo commit feature"
+[feature 605aa6f] Segundo commit feature
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 SegundoFeature.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ git checkout master
+Switched to branch 'master'
+
+
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git log --oneline --graph
+* 380cdb7 (HEAD -> master) Tercer commit
+* 4ae8e74 Segundo commit
+* 9b4011a Primer Commit
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git checkout feature
+Switched to branch 'feature'
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ git log --oneline --graph
+* 605aa6f (HEAD -> feature) Segundo commit feature
+* 8bae8f3 Primer commit feature
+* 4ae8e74 Segundo commit
+* 9b4011a Primer Commit
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ git rebase master
+Successfully rebased and updated refs/heads/feature.
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ git log --oneline --graph
+* 0d0df78 (HEAD -> feature) Segundo commit feature
+* e710629 Primer commit feature
+* 380cdb7 (master) Tercer commit
+* 4ae8e74 Segundo commit
+* 9b4011a Primer Commit
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (feature)
+$ git checkout master
+Switched to branch 'master'
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git merge feature
+Updating 380cdb7..0d0df78
+Fast-forward
+ PrimeroFeature.html | 0
+ SegundoFeature.html | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 PrimeroFeature.html
+ create mode 100644 SegundoFeature.html
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$ git log --oneline --graph
+* 0d0df78 (HEAD -> master, feature) Segundo commit feature
+* e710629 Primer commit feature
+* 380cdb7 Tercer commit
+* 4ae8e74 Segundo commit
+* 9b4011a Primer Commit
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/Procesos Git/Rebase (master)
+$

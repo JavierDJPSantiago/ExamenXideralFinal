@@ -1,0 +1,82 @@
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ notepad archivo.txt
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git stash save "hice un stash"
+Saved working directory and index state On master: hice un stash
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git stash list
+stash@{0}: On master: hice un stash
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git stash show stash@{0}
+ archivo.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git stash apply stash@{0}
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   archivo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git add .
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git commit -m "stash al repo"
+[master e728706] stash al repo
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ notepad archivo.txt
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git stash save "Segundo stash"
+Saved working directory and index state On master: Segundo stash
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git stash list
+stash@{0}: On master: Segundo stash
+stash@{1}: On master: hice un stash
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git stash pop ^C
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git stash list stash@{1}
+stash@{0}: On master: Segundo stash
+stash@{1}: On master: hice un stash
+stash@{1}: On master: hice un stash
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git stash pop stash@{1}
+On branch master
+nothing to commit, working tree clean
+Dropped stash@{1} (92fc556325381feda1092dd1f8e4a4710112237b)
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git stash pop stash@{0}
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   archivo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped stash@{0} (0f3f5bc6fd39cf66dc0a89eddfc836a8802d3915)
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git stash list
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git add .
+
+USER@DESKTOP-NRTG9M9 MINGW64 ~/Documents/UltimoExamen/Git comandos/Git stash (master)
+$ git commit -m "guardando en el repo"
+[master e73171c] guardando en el repo
+ 1 file changed, 3 insertions(+), 1 deletion(-)
